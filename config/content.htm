@@ -556,7 +556,42 @@ void draw_uk_flag(gdImagePtr img) {
     gdImageFilledRectangle(img, 0, center_y + 1.5 * cross_arm_width, width, center_y - 1.5 * cross_arm_width, red);
 }</pre>
 <p><img alt="" height="200" src="/images/uk_flag.png" width="400"/></p>
-<h2>w12</h2>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+#include &lt;gd.h&gt;
+#include &lt;math.h&gt;
+
+#define WIDTH 600
+#define HEIGHT 400
+#define GREEN 0x138808  // Green color
+#define RED 0xE30A17     // Red color
+
+void drawBangladeshFlag() {
+    gdImagePtr im;
+    FILE *output;
+
+    im = gdImageCreateTrueColor(WIDTH, HEIGHT);
+    output = fopen("bangladesh_flag.png", "wb");
+
+    // Draw green background
+    gdImageFilledRectangle(im, 0, 0, WIDTH - 1, HEIGHT - 1, GREEN);
+
+    // Draw red circle
+    int centerX = WIDTH / 2;
+    int centerY = HEIGHT / 2;
+    int circleRadius = 100;
+
+    gdImageFilledEllipse(im, centerX, centerY, circleRadius * 2, circleRadius * 2, RED);
+
+    gdImagePng(im, output);
+    fclose(output);
+    gdImageDestroy(im);
+}
+
+int main() {
+    drawBangladeshFlag();
+    return 0;
+}</pre>
+<p></p><h2>w12</h2>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
 #include &lt;gd.h&gt;
 #include &lt;math.h&gt;

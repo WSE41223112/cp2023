@@ -1,5 +1,4 @@
-
-
+// 包含標準輸出入程式庫的標頭文件
 // https://blog.csdn.net/weixin_38468077/article/details/101069365
 // http://www.gnuplot.info/demo/
 // https://github.com/sysprog21/rv32emu
