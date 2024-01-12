@@ -1,6 +1,14 @@
 <h1>About</h1>
 <p><a href="https://github.com/mdecycu/cmsite"> https://github.com/mdecycu/cmsite</a></p>
 <h1>ANSIC</h1>
+<p>#include &lt;stdio.h&gt;<br/>int main() {<br/>int i, j, flag, ip = 0;</p>
+<p>// Print a message indicating the purpose of the program<br/>printf("The prime numbers between 1 and 199 are:\n");</p>
+<p>// Loop to check prime numbers from 2 to 198<br/>for (i = 2; i &lt; 199; i++) {<br/>flag = 1;</p>
+<p>// Loop to check if i is divisible by any number other than 1 and itself<br/>for (j = 2; j &lt;= i / 2 &amp;&amp; flag == 1; j++) {<br/>if (i % j == 0) {<br/>flag = 0;<br/>}<br/>}</p>
+<p>// If i is prime, print it<br/>if (flag == 1) {<br/>printf("%5d ", i);<br/>ip++;</p>
+<p>// Print a newline character after every 10 prime numbers<br/>if (ip % 10 == 0) {<br/>printf("\n");<br/>}<br/>}<br/>}</p>
+<p>printf("\n");</p>
+<p>return 0;<br/>}</p>
 <h1>倉儲維護</h1>
 <h2>replit</h2>
 <p>以電子郵箱註冊作為 Replit 登入帳號後, 登入自己的 Github 帳號</p>
@@ -744,7 +752,8 @@ int main() {
 </tbody>
 </table>
 </div>
-</div><h2>w12</h2>
+</div>
+<h2>w12</h2>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
 #include &lt;gd.h&gt;
 #include &lt;math.h&gt;

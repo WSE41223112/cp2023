@@ -143,6 +143,14 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content">About << <a href='About.html'>Previous</a> <a href='倉儲維護.html'>Next</a> >> 倉儲維護<br /><h1>ANSIC</h1>
+<p>#include &lt;stdio.h&gt;<br/>int main() {<br/>int i, j, flag, ip = 0;</p>
+<p>// Print a message indicating the purpose of the program<br/>printf("The prime numbers between 1 and 199 are:\n");</p>
+<p>// Loop to check prime numbers from 2 to 198<br/>for (i = 2; i &lt; 199; i++) {<br/>flag = 1;</p>
+<p>// Loop to check if i is divisible by any number other than 1 and itself<br/>for (j = 2; j &lt;= i / 2 &amp;&amp; flag == 1; j++) {<br/>if (i % j == 0) {<br/>flag = 0;<br/>}<br/>}</p>
+<p>// If i is prime, print it<br/>if (flag == 1) {<br/>printf("%5d ", i);<br/>ip++;</p>
+<p>// Print a newline character after every 10 prime numbers<br/>if (ip % 10 == 0) {<br/>printf("\n");<br/>}<br/>}<br/>}</p>
+<p>printf("\n");</p>
+<p>return 0;<br/>}</p>
 <br />About << <a href='About.html'>Previous</a> <a href='倉儲維護.html'>Next</a> >> 倉儲維護</div>
         
     <!-- footer -->
