@@ -131,7 +131,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li><a href='ANSIC.html'>ANSIC</a><li class='has-children'><a href='倉儲維護.html'>倉儲維護</a><ul class='dropdown'><li><a href='replit.html'>replit</a></li></ul><li class='has-children'><a href='課堂作業.html'>課堂作業</a><ul class='dropdown'><li><a href='w5.html'>w5</a><li><a href='w6.html'>w6</a><li><a href='w12.html'>w12</a><li><a href='w13.html'>w13</a></li></ul><li><a href='Brython.html'>Brython</a></li>
+                     <li><a href='About.html'>About</a><li><a href='ANSIC.html'>ANSIC</a><li class='has-children'><a href='倉儲維護.html'>倉儲維護</a><ul class='dropdown'><li><a href='replit.html'>replit</a></li></ul><li class='has-children'><a href='課堂作業.html'>課堂作業</a><ul class='dropdown'><li><a href='w5.html'>w5</a><li><a href='w6.html'>w6</a><li><a href='w13.html'>w13</a></li></ul><li><a href='Brython.html'>Brython</a></li>
                       </ul>
                 </nav>
               </div>
@@ -142,7 +142,7 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w5 << <a href='w5.html'>Previous</a> <a href='w12.html'>Next</a> >> w12<br /><h1>w6</h1>
+    <div id="tipue_search_content">w5 << <a href='w5.html'>Previous</a> <a href='w13.html'>Next</a> >> w13<br /><h1>w6</h1>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// https://en.wikipedia.org/wiki/Flag_of_the_Republic_of_China
 // 內政部國旗參考資料: https://www.moi.gov.tw/cp.aspx?n=10621
 // cc roc_flag_in_gd.c -lgd -lm to link with gd and math library
@@ -729,10 +729,10 @@ int main() {
 <p><img alt="" height="267" src="./../images/russia_flag.png" width="400"/></p>
 <div>
 <div class="syntaxhighlighter cpp" id="highlighter_272931">
-<table border="0" cellpadding="0" cellspacing="0">
+<table border="0" cellpadding="0" cellspacing="0" style="width: 565px;">
 <tbody>
 <tr>
-<td class="code">
+<td class="code" style="width: 561px;">
 <div class="container">
 <div class="line number1 index0 alt2"><code class="cpp preprocessor">#include &lt;stdio.h&gt;</code></div>
 <div class="line number2 index1 alt1"><code class="cpp preprocessor">#include &lt;gd.h&gt;</code></div>
@@ -821,6 +821,19 @@ int main() {
 <div class="line number43 index42 alt2"><code class="cpp spaces">    </code><code class="cpp keyword bold">return</code> <code class="cpp plain">0;</code></div>
 <div class="line number44 index43 alt1"><code class="cpp plain">}</code></div>
 <div class="line number44 index43 alt1"><code class="cpp plain"><img alt="" height="267" src="./../images/laos_flag.png" width="400"/></code></div>
+<br/><code class="cpp plain">W</code><code class="cpp plain">7<strong></strong><strong></strong></code>
+<p>Map: site map 網站所有頁面</p>
+<p>EditA: edit all pages, 使用時機為(1)解決多人共用網站時的衝突, 或(2)刪除特定頁面</p>
+<p>Edit: edit one page, 先選頁面, 再選 Edit 然後才能進入編輯模式</p>
+<p>Config: 編輯網站標題, 若要編輯 site title, 必須更改 init.py 中的 site_title 字串內容</p>
+<p>Search: 頁面資料 html 原始碼內容搜尋</p>
+<p>IUpload: image upload, 影像檔案上傳, 資料會放入 images 目錄中</p>
+<p>IList: image file list, 列出存在 images 目錄下的影像檔案</p>
+<p>FUpload: file upload, 一般檔案上傳功能, 資料會放入 downloads 目錄中</p>
+<p>FList: file list, 列出位於 downloads 目錄下的檔案</p>
+<p>Logout: 登出</p>
+<p>Convert: 將 config/content.htm 經過分頁程式處理後, 轉為 content 目錄下的超文件</p>
+<p><code class="cpp plain"></code></p>
 </div>
 </div>
 </td>
@@ -829,7 +842,169 @@ int main() {
 </table>
 </div>
 </div>
-<br />w5 << <a href='w5.html'>Previous</a> <a href='w12.html'>Next</a> >> w12</div>
+<br/>w12<strong></strong>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+#include &lt;gd.h&gt;
+#include &lt;math.h&gt;
+
+// Declare the rotation function
+void rotateFilledPolygon(int x_orig, int y_orig, double rotation_ang, gdPoint *points, int num_points) {
+    int i;
+    double angle_rad = rotation_ang * M_PI / 180.0;
+
+    for (i = 0; i &lt; num_points; i++) {
+        int x = points[i].x - x_orig;
+        int y = points[i].y - y_orig;
+
+        points[i].x = x_orig + (int)(x * cos(angle_rad) - y * sin(angle_rad));
+        points[i].y = y_orig + (int)(x * sin(angle_rad) + y * cos(angle_rad));
+    }
+}
+
+int main() {
+    int width = 800;
+    int height = 600;
+
+    gdImagePtr img = gdImageCreateTrueColor(width, height);
+    gdImageAlphaBlending(img, 0);
+
+    FILE *outputFile = fopen("./../images/hellogd1.png", "wb");
+    if (outputFile == NULL) {
+        fprintf(stderr, "Error opening the output file.\n");
+        return 1;
+    }
+
+    int red = gdImageColorAllocate(img, 255, 0, 0);
+    int blue = gdImageColorAllocate(img, 0, 0, 255);
+    int black = gdImageColorAllocate(img, 0, 0, 0);
+    int white = gdImageColorAllocate(img, 255, 255, 255);
+
+    gdImageFilledRectangle(img, 0, 0, width, height, white);
+    gdImageFilledRectangle(img, 0, 0, (int)width / 4, (int)height / 4, blue);
+
+    gdImageFilledEllipse(img, (int)width * 3 / 4, (int)height / 4, (int)width / 4, (int)width / 4, red);
+    gdImageEllipse(img, (int)width * 3 / 4, (int)height * 3 / 4, (int)width / 4, (int)width / 4, red);
+    gdImageLine(img, (int)width / 2, (int)height / 2, (int)width / 2, (int)height / 2 + 100, blue);
+
+    gdPoint points[4];
+    points[0].x = (int)width / 4;
+    points[0].y = (int)height * 3 / 4;
+    points[1].x = points[0].x + 100;
+    points[1].y = points[0].y;
+    points[2].x = points[1].x;
+    points[2].y = points[1].y + 100;
+    points[3].x = points[2].x - 100;
+    points[3].y = points[2].y;
+
+    // Call the rotation function
+    rotateFilledPolygon((int)width / 4 + 50, (int)height * 3 / 4 + 50, 45.0, points, 4);
+    gdImagePolygon(img, points, 4, black);
+
+    gdPoint points2[4];
+    points2[0].x = (int)width / 3;
+    points2[0].y = (int)height / 2;
+    points2[1].x = points2[0].x + 100;
+    points2[1].y = points2[0].y;
+    points2[2].x = points2[1].x;
+    points2[2].y = points2[1].y + 100;
+    points2[3].x = points2[2].x - 150;
+    points2[3].y = points2[2].y;
+
+    // Call the rotation function
+    rotateFilledPolygon((int)width / 3 + 50, (int)height / 2 + 50, 30.0, points2, 4);
+    gdImageFilledPolygon(img, points2, 4, red);
+
+    gdImagePngEx(img, outputFile, 9);
+    fclose(outputFile);
+    gdImageDestroy(img);
+
+    return 0;
+}</pre>
+<p><img alt="" height="300" src="./../images/hellogd1.png" width="400"/></p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+#include &lt;gd.h&gt;
+#include &lt;math.h&gt;
+ 
+// Declare the rotation function
+void rotateFilledPolygon(int x_orig, int y_orig, double rotation_ang, gdPoint *points, int num_points) {
+    int i;
+    double angle_rad = rotation_ang * M_PI / 180.0;
+ 
+    for (i = 0; i &lt; num_points; i++) {
+        int x = points[i].x - x_orig;
+        int y = points[i].y - y_orig;
+ 
+        points[i].x = x_orig + (int)(x * cos(angle_rad) - y * sin(angle_rad));
+        points[i].y = y_orig + (int)(x * sin(angle_rad) + y * cos(angle_rad));
+    }
+}
+ 
+int main() {
+    int width = 800;
+    int height = 600;
+ 
+    gdImagePtr img = gdImageCreateTrueColor(width, height);
+    gdImageAlphaBlending(img, 0);
+ 
+    FILE *outputFile = fopen("./../images/hellogd2.png", "wb");
+    if (outputFile == NULL) {
+        fprintf(stderr, "Error opening the output file.\n");
+        return 1;
+    }
+ 
+    int red = gdImageColorAllocate(img, 255, 0, 0);
+    int blue = gdImageColorAllocate(img, 0, 0, 255);
+    int black = gdImageColorAllocate(img, 0, 0, 0);
+    int white = gdImageColorAllocate(img, 255, 255, 255);
+ 
+    gdImageFilledRectangle(img, 0, 0, width, height, white);
+    gdImageFilledRectangle(img, 0, 0, (int)width / 4, (int)height / 4, blue);
+ 
+    gdImageFilledEllipse(img, (int)width * 3 / 4, (int)height / 4, (int)width / 4, (int)width / 4, red);
+    gdImageEllipse(img, (int)width * 3 / 4, (int)height * 3 / 4, (int)width / 4, (int)width / 4, red);
+    gdImageLine(img, (int)width / 2, (int)height / 2, (int)width / 2, (int)height / 2 + 100, blue);
+ 
+    gdPoint points[4];
+    points[0].x = (int)width / 4;
+    points[0].y = (int)height * 3 / 4;
+    points[1].x = points[0].x + 100;
+    points[1].y = points[0].y;
+    points[2].x = points[1].x;
+    points[2].y = points[1].y + 100;
+    points[3].x = points[2].x - 100;
+    points[3].y = points[2].y;
+ 
+    // Call the rotation function multiple times
+    for (int i = 0; i &lt; 4; i++) {
+        rotateFilledPolygon((int)width / 4 + 50, (int)height * 3 / 4 + 50, 30.0, points, 4);
+        gdImagePolygon(img, points, 4, black);
+    }
+ 
+    gdPoint points2[4];
+    points2[0].x = (int)width / 3;
+    points2[0].y = (int)height / 2;
+    points2[1].x = points2[0].x + 100;
+    points2[1].y = points2[0].y;
+    points2[2].x = points2[1].x;
+    points2[2].y = points2[1].y + 100;
+    points2[3].x = points2[2].x - 150;
+    points2[3].y = points2[2].y;
+ 
+    // Call the rotation function multiple times
+    for (int i = 0; i &lt; 12; i++) {
+        //rotateFilledPolygon((int)width / 3 + 50, (int)height / 2 + 50, 30.0, points2, 4);
+        rotateFilledPolygon(500, 200, 30.0, points2, 4);
+        gdImageFilledPolygon(img, points2, 4, red);
+    }
+ 
+    gdImagePngEx(img, outputFile, 9);
+    fclose(outputFile);
+    gdImageDestroy(img);
+ 
+    return 0;
+}</pre>
+<p><img alt="" height="300" src="./../images/hellogd2.png" width="400"/></p>
+<br />w5 << <a href='w5.html'>Previous</a> <a href='w13.html'>Next</a> >> w13</div>
         
     <!-- footer -->
       <div class="container">
